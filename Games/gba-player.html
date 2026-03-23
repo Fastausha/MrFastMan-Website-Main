@@ -2,21 +2,21 @@
 <html>
 <head>
   <title>GBA Player</title>
-  <style>
-    body { margin: 0; background: black; }
-    iframe { width: 100vw; height: 100vh; border: none; }
-  </style>
+  <link rel="stylesheet" href="/emulator/emulator.min.css">
+  <script src="/emulator/loader.js"></script>
 </head>
-<body>
+<body style="margin:0;background:black;">
 
-<iframe id="emu"></iframe>
+<div id="game"></div>
 
 <script>
   const params = new URLSearchParams(location.search);
   const rom = params.get("rom");
 
-  document.getElementById("emu").src =
-    "https://cdn.emulatorjs.org/latest/index.html?system=gba&rom=" + rom;
+  EJS_player = "#game";
+  EJS_core = "gba";
+  EJS_gameUrl = rom;
+  EJS_fullscreenOnLoad = true;
 </script>
 
 </body>
